@@ -109,6 +109,8 @@ struct cpufreq_policy {
 	 */
 	struct rw_semaphore	rwsem;
 
+	/* Boost switch for tasks with p->in_iowait set */
+	bool iowait_boost_enable;
 	/* Synchronization for frequency transitions */
 	bool			transition_ongoing; /* Tracks transition status */
 	spinlock_t		transition_lock;
